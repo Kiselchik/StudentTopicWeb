@@ -1,0 +1,84 @@
+﻿@page
+@model StudentTopicWeb.Pages.Works.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Work[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Work[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Work[0].MaxStudents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Work[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Work[0].StudentTopicAllow)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Work[0].MaxTopics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Work[0].DisciplineId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Work[0].GroupId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Work[0].Type)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Work) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxStudents)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentTopicAllow)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxTopics)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisciplineId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type.TypeId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.WorkId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.WorkId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.WorkId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
